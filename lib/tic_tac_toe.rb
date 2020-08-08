@@ -93,12 +93,10 @@ def full?
 end
 
 def draw?
-  if won? == true
-    false
-  elsif full? == true && won? == false
-    true
-  elsif full? == false && won? == false
-    false
+  if !won? && full?
+    return true
+  else
+    return false
   end
 end
 
@@ -124,7 +122,7 @@ def play
   until over? == true
     turn
   end
-  
+
   if won?
     puts "Congratulations #{winner}!"
   elsif draw?
